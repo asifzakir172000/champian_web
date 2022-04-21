@@ -29,7 +29,7 @@ class LoginBody extends StatelessWidget {
           style: GoogleFonts.lato(
             textStyle: Theme.of(context).textTheme.headline4,
             fontSize: 28,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w800,
             fontStyle: FontStyle.normal,
             color: blackColor,
           ),

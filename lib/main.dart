@@ -1,4 +1,6 @@
-import 'package:champian_web/views/home/home_screen.dart';
+import 'package:champian_web/style_guide/responsive_widget.dart';
+import 'package:champian_web/views/login/login_screen.dart';
+import 'package:champian_web/views/login/login_small_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,8 +24,8 @@ class MyApp extends StatelessWidget {
           bodyColor: Colors.black
         ),
       ),
-      // home: ResponsiveWidget(lg: LoginScreen(), ms: LoginScreen(), sm: LoginSmallScreen(),),
-      home: HomeScreen(),
+      home: ResponsiveWidget(lg: LoginScreen(), ms: LoginScreen(), sm: LoginSmallScreen(),),
+      // home: HomeScreen(),
     );
   }
 }

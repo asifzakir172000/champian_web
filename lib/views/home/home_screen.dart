@@ -1,9 +1,11 @@
-import 'dart:js';
-
 import 'package:champian_web/style_guide/colors.dart';
-import 'package:champian_web/style_guide/image.dart';
+import 'package:champian_web/views/feedback/feedback_form.dart';
+import 'package:champian_web/views/home/home_comp/home_element.dart';
+import 'package:champian_web/views/home/home_comp/home_enrollment.dart';
+import 'package:champian_web/views/home/home_comp/home_instraction.dart';
+import 'package:champian_web/views/home/home_comp/home_l1.dart';
+import 'package:champian_web/views/home/home_comp/home_test_paper.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,40 +18,21 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         color: whiteColor,
         child: Center(
-          child: Stack(
+          child: ListView(
             children: [
-              ListView(
-                children: [
-                  CarouselSlider.builder(
-                    itemCount: caruselImage.length,
-                    itemBuilder: (BuildContext context, int index, int img) {
-                      return Container(
-                        width: queryData.size.width,
-                        decoration: BoxDecoration(
-                          color: blackColor,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              caruselImage[index],
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      );
-                    },
-                    options: CarouselOptions(
-                      height: queryData.size.height * 0.70,
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      initialPage: 0,
-                      enlargeCenterPage: false,
-                      viewportFraction: 1,
-                      autoPlayAnimationDuration: Duration(seconds: 4),
-                    ),
-                  ),
-                ],
+              HomeElement(queryData: queryData),
+              SizedBox(
+                height: queryData.size.height * 0.1,
               ),
-              CustomAppBar(
-                queryData: queryData,
+              HomeL1(queryData: queryData),
+              HomeEnrollment(queryData: queryData),
+              HomeTestpaper(queryData: queryData),
+              HomeInstruction(queryData: queryData),
+              Container(
+                child: FeedbackForm(queryData: queryData),
+                margin: EdgeInsets.only(
+                  top: 60,
+                ),
               ),
             ],
           ),
@@ -58,6 +41,37 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+// ListView(
+//                 children: [
+//                   CarouselSlider.builder(
+//                     itemCount: caruselImage.length,
+//                     itemBuilder: (BuildContext context, int index, int img) {
+//                       return Container(
+//                         width: queryData.size.width,
+//                         decoration: BoxDecoration(
+//                           color: blackColor,
+//                           image: DecorationImage(
+//                             image: NetworkImage(
+//                               caruselImage[index],
+//                             ),
+//                             fit: BoxFit.cover,
+//                           ),
+//                         ),
+//                       );
+//                     },
+//                     options: CarouselOptions(
+//                       height: queryData.size.height * 0.90,
+//                       autoPlay: true,
+//                       aspectRatio: 2.0,
+//                       initialPage: 0,
+//                       enlargeCenterPage: false,
+//                       viewportFraction: 1,
+//                       autoPlayAnimationDuration: Duration(seconds: 4),
+//                     ),
+//                   ),
+//                 ],
+//               ),
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
@@ -96,12 +110,16 @@ class CustomAppBar extends StatelessWidget {
                     press: () {},
                     txt: "Home",
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   ClickableText(
                     press: () {},
                     txt: "About Us",
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   ClickableText(
                     press: () {},
                     txt: "Contact Us",
