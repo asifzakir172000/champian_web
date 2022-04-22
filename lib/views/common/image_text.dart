@@ -1,3 +1,4 @@
+import 'package:champian_web/views/common/slide_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:champian_web/style_guide/image.dart';
 import 'package:champian_web/style_guide/text.dart';
@@ -18,10 +19,12 @@ class ImageTextComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        imageFromAssetes(
-          path: image == "" ? loginImg : "",
-          height: 200,
-          width: 200,
+        SlideRightTransition(
+          child: imageFromAssetes(
+            path: image == "" ? loginImg : "",
+            height: 200,
+            width: 200,
+          ),
         ),
         SizedBox(
           width: queryData.size.width * 0.2,

@@ -1,5 +1,6 @@
 import 'package:champian_web/style_guide/colors.dart';
 import 'package:champian_web/views/common/short_divider.dart';
+import 'package:champian_web/views/common/slide_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:champian_web/style_guide/image.dart';
 import 'package:champian_web/style_guide/text.dart';
@@ -24,7 +25,9 @@ class HomeEnrollment extends StatelessWidget {
           bigTextView(msg: "Enrollment Number"),
           Padding(
             padding: EdgeInsets.only(top: 20, bottom: 20),
-            child: ShortDividerComponent(color: blackColor,),
+            child: ShortDividerComponent(
+              color: blackColor,
+            ),
           ),
           smallTextView(
             msg:
@@ -37,10 +40,12 @@ class HomeEnrollment extends StatelessWidget {
             ),
             child: Row(
               children: [
-                imageFromAssetes(
-                  path: loginImg,
-                  height: 200,
-                  width: 200,
+                SlideLeftRoute(
+                  child: imageFromAssetes(
+                    path: loginImg,
+                    height: 200,
+                    width: 200,
+                  ),
                 ),
                 SizedBox(
                   width: queryData.size.width * 0.2,

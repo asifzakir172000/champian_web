@@ -1,7 +1,9 @@
 import 'package:champian_web/views/common/short_divider.dart';
+import 'package:champian_web/views/student_register/student_register.dart';
 import 'package:flutter/material.dart';
 import 'package:champian_web/style_guide/image.dart';
 import 'package:champian_web/style_guide/text.dart';
+import 'package:get/get.dart';
 
 class HomeL1 extends StatelessWidget {
   const HomeL1({
@@ -51,7 +53,9 @@ class HomeL1 extends StatelessWidget {
                           top: 30.0,
                         ),
                         child: ElevatedButton(
-                          onPressed: () => {},
+                          onPressed: () => {
+                            Get.to(() => StudentRegistration())
+                          },
                           child: Text('Register'),
                         ),
                       ),
